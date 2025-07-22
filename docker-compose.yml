@@ -2,12 +2,9 @@ version: '3.8'
 
 services:
   fastapi-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: fastapi-app
+    build: .
     ports:
-      - "8029:8000"
+      - "8000:8000"  # Important: expose correct container port
     environment:
-      - ENV=production
+      - PYTHONUNBUFFERED=1
     restart: unless-stopped

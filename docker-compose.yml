@@ -3,8 +3,4 @@ version: '3.8'
 services:
   fastapi-app:
     build: .
-    ports:
-      - "8000:8000"  # Important: expose correct container port
-    environment:
-      - PYTHONUNBUFFERED=1
     restart: unless-stopped

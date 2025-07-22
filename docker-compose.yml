@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: fastapi-app
     ports:
-      - "8000:8000"
+      - "8029:8000"
     environment:
       - ENV=production
     restart: unless-stopped

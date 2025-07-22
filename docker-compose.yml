@@ -9,7 +9,7 @@ services:
     labels:
       - "coolify.managed=true"  # ✅ Important for Coolify to track the service
       - "traefik.enable=true"
-      - "traefik.http.routers.fastapi-app.rule=Host(`your-subdomain.dev.faircloud.ai`)"  # ✅ Replace this!
+      - "traefik.http.routers.fastapi-app.rule=Host(`mso44ckgo0wss0okgkoc0w8w.dev.faircloud.ai`)"
       - "traefik.http.routers.fastapi-app.entrypoints=websecure"
       - "traefik.http.routers.fastapi-app.tls=true"
       - "traefik.http.services.fastapi-app.loadbalancer.server.port=8000"

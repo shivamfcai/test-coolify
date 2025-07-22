@@ -5,12 +5,12 @@ services:
     build: .
     container_name: fastapi-app
     expose:
-      - "8000"  # ✅ Use 'expose' instead of 'ports' for Traefik to access it internally
+      - "8000"  # ✅ Makes 8000 available to Traefik only (not public)
     labels:
-      - "coolify.managed=true"  # ✅ Important for Coolify to track the service
+      - "coolify.managed=true"  # ✅ Let Coolify track it
       - "traefik.enable=true"
       - "traefik.http.routers.fastapi-app.rule=Host(`mso44ckgo0wss0okgkoc0w8w.dev.faircloud.ai`)"
       - "traefik.http.routers.fastapi-app.entrypoints=websecure"
       - "traefik.http.routers.fastapi-app.tls=true"
-      - "traefik.http.services.fastapi-app.loadbalancer.server.port=8000"
+      - "traefik.http.services.fastapi-app.loadbalancer.server.port=8000"  # ✅ Internal port exposed by container
     restart: always

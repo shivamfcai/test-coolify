@@ -1,6 +1,14 @@
-version: '3.8'
+version: "3.9"
 
 services:
   fastapi-app:
     build: .
-    restart: unless-stopped
+    container_name: fastapi-app
+    ports:
+      - "8000:8000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fastapi-app.rule=Host(`your-subdomain.dev.faircloud.ai`)"
+      - "traefik.http.routers.fastapi-app.entrypoints=websecure"
+      - "traefik.http.routers.fastapi-app.tls=true"
+    restart: always

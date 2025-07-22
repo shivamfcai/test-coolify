@@ -7,10 +7,10 @@ WORKDIR /app
 # Copy code
 COPY . .
 
-# Install dependencies
-RUN python3 -m venv venv
+# # Install dependencies
+# RUN python3 -m venv venv
 
-RUN source venv/bin/activate
+# RUN source venv/bin/activate
 
 RUN pip install --no-cache-dir -r requirements.txt
 

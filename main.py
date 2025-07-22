@@ -11,6 +11,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def read_root():
+    return {"status": "running"}
+
+
 @app.get("/process/")
 def process_number(number: int):
     result = number * 2 + 1

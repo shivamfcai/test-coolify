@@ -4,11 +4,13 @@ services:
   fastapi-app:
     build: .
     container_name: fastapi-app
-    ports:
-      - "8019:8000"
+    expose:
+      - "8000"  # ✅ Use 'expose' instead of 'ports' for Traefik to access it internally
     labels:
+      - "coolify.managed=true"  # ✅ Important for Coolify to track the service
       - "traefik.enable=true"
-      - "traefik.http.routers.fastapi-app.rule=Host(`your-subdomain.dev.faircloud.ai`)"
+      - "traefik.http.routers.fastapi-app.rule=Host(`your-subdomain.dev.faircloud.ai`)"  # ✅ Replace this!
       - "traefik.http.routers.fastapi-app.entrypoints=websecure"
       - "traefik.http.routers.fastapi-app.tls=true"
+      - "traefik.http.services.fastapi-app.loadbalancer.server.port=8000"
     restart: always

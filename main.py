@@ -18,5 +18,5 @@ def read_root():
 
 @app.get("/process/")
 def process_number(number: int):
-    result = number * 2 + 1
+    result = number * 2
     return {"input": number, "result": result}
